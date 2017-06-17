@@ -1,0 +1,5 @@
+br\com\rafaelsonego\service\TestService.class
+br\com\rafaelsonego\service\impl\TestServiceImpl.class
+br\com\rafaelsonego\dao\TestDao.class
+br\com\rafaelsonego\dao\impl\TestDaoImpl.class
+br\com\rafaelsonego\domain\Test.class
