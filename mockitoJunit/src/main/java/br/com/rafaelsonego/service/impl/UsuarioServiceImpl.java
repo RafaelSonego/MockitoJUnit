@@ -14,26 +14,32 @@ public class UsuarioServiceImpl implements UsuarioService {
 	static Logger log = Logger.getLogger(UsuarioServiceImpl.class);
 	
 	@Override
-	public void salvar(Usuario user) {
+	public Usuario salvar(Usuario user) throws Exception {
 		try {
 			log.debug("Iniciando metodo salvar");
 			UsuarioDao userDao = new UsuarioDaoImpl();
 			userDao.salvar(user);
+			Usuario usuarioRecuperado = recuperarUser(user.getNome());
 			log.debug("Metodo Finalizado com sucesso - Objeto salvo na base");
+			return usuarioRecuperado;
 		} catch (Exception ex) {
 			log.error("Falha ao executar", ex);
+			throw ex;
 		}
 	}
 
 	@Override
-	public void atualizar(Usuario user) {
+	public Usuario atualizar(Usuario user) throws Exception {
 		try {
 			log.debug("Iniciando metodo atualizar");
 			UsuarioDao userDao = new UsuarioDaoImpl();
 			userDao.atualizar(user);
+			Usuario usuarioRecuperado = recuperarUser(user.getNome());
 			log.debug("Metodo Finalizado com sucesso - Objeto atualizado na base - id: " + user.getId());
+			return usuarioRecuperado;
 		} catch (Exception ex) {
 			log.error("Falha ao executar", ex);
+			throw ex;
 		}
 	}
 

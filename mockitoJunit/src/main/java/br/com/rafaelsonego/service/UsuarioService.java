@@ -6,9 +6,9 @@ import br.com.rafaelsonego.domain.Usuario;
 
 public interface UsuarioService {
 
-	void salvar(Usuario testDomain);
+	Usuario salvar(Usuario user) throws Exception;
 
-	void atualizar(Usuario testDomain);
+	Usuario atualizar(Usuario user) throws Exception;
 
 	List<Usuario> recuperarUser() throws Exception;
 
