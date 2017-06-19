@@ -6,9 +6,9 @@ import br.com.rafaelsonego.domain.Usuario;
 
 public interface UsuarioDao {
 	
-	void salvar(Usuario testDomain);
+	void salvar(Usuario user);
 	
-	void atualizar(Usuario testDomain);
+	void atualizar(Usuario user);
 	
 	List<Usuario> recuperarUser();
 	
