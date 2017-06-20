@@ -58,8 +58,8 @@ public class UsuarioMockitoTest {
 			UsuarioService userServiceFalse = mock(UsuarioService.class);
 			List<Usuario> listUsuario = Arrays.asList(user);
 			when(userServiceFalse.recuperarUser()).thenReturn(listUsuario);	
-			List<Usuario> lista = userServiceFalse.recuperarUser();
-			assertTrue(lista.size() > 0);
+			List<Usuario> listUsers = userServiceFalse.recuperarUser();
+			assertTrue(listUsers.size() > 0);
 		} catch (Exception e) {
 			assertTrue(false);
 		}
@@ -69,9 +69,9 @@ public class UsuarioMockitoTest {
 	public void testandoMetodoConsultaEspecifico() {
 		try {
 			UsuarioService userServiceFalse = mock(UsuarioService.class);
-			when(userServiceFalse.recuperarUser(0)).thenReturn(user);	
-			Usuario user = userServiceFalse.recuperarUser(0);
-			assertNotNull(user);
+			when(userServiceFalse.recuperarUser(user.getId())).thenReturn(user);	
+			Usuario userRecovered = userServiceFalse.recuperarUser(user.getId());
+			assertNotNull(userRecovered);
 		} catch (Exception e) {
 			assertTrue(false);
 		}
